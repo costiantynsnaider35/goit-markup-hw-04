@@ -71,23 +71,27 @@ img {
   letter-spacing: 0.02em;
   padding: 24px 0;
   display: block;
+}
+.menu-hed {
+  color: #404bbf;
   transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(cubic-bezier(0.4, 0, 0.2, 1));
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
 .menu:hover,
 .menu:focus {
   color: #404bbf;
 }
-.menu:hover::after {
-  position: absolute;
-  display: block;
-  border-radius: 2px;
-  width: 100%;
-  height: 4px;
+.menu-hed:hover::after {
   content: "";
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 4px;
   background: #404bbf;
+  border-radius: 2px;
+  display: block;
   margin-top: 20px;
 }
 .menu-navigation {
@@ -107,9 +111,7 @@ img {
   line-height: 1.5;
   color: #434455;
   letter-spacing: 0.02em;
-  transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(cubic-bezier(0.4, 0, 0.2, 1));
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts-title:hover,
 .contacts-title:focus {
@@ -159,8 +161,7 @@ img {
   padding: 16px 32px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(cubic-bezier(0.4, 0, 0.2, 1));
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .board-button:hover,
 .board-button:focus {
@@ -201,22 +202,15 @@ img {
   color: #434455;
 }
 .icon-advantages {
-  display: block;
-  align-items: center;
-  border: 1px solid #8e8f99;
-  border-radius: 4px;
-  width: 264px;
-  height: 112px;
-  background: #f4f4fd;
-  margin-bottom: 8px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  padding: 24px 100px;
+  height: 112px;
+  background-color: #f4f4fd;
+  border-radius: 4px;
+  border: 1px solid #8e8f99;
+  margin-bottom: 8px;
 }
-.icon-advantages-style {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-}
-
 /* Section3 */
 .team-section {
   background-color: #f4f4fd;
@@ -239,6 +233,8 @@ img {
   background-color: #fff;
   width: calc((100% - 3 * 24px) / 4);
   border-radius: 0px 0px 4px 4px;
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 .team-profile {
   padding: 32px 0;
@@ -269,14 +265,14 @@ img {
   height: 100%;
   background-color: #4d5ae5;
   border-radius: 50%;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(cubic-bezier(0.4, 0, 0.2, 1));
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-soc {
-  fill: #fff;
+  fill: #f4f4fd;
 }
-.icon-link:hover {
-  background-color: #31d0aa;
+.icon-link:hover,
+.icon-link:focus {
+  background-color: #404bbf;
 }
 /* Section4 */
 .products {
@@ -300,34 +296,31 @@ img {
   background: #fff;
   position: relative;
   overflow: hidden;
+  box-shadow: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .port-overlay {
   position: relative;
   overflow: hidden;
-
-  .overlay-board {
-    background-color: #4d5ae5;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-    color: #f4f4fd;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    transform: translateY(100%);
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(cubic-bezier(0.4, 0, 0.2, 1));
-    padding: 40px 32px;
-  }
-  .port-overlay:hover {
-    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
-      0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
-  }
 }
-.port-overlay:hover .overlay-board {
+.board-overlay {
+  position: absolute;
+  top: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  padding: 40px 32px;
+  background-color: #4d5ae5;
+  height: 100%;
+  width: 100%;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.port-overlay:hover {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+.port-overlay:hover .board-overlay {
   transform: translateY(0);
 }
 .port-card {
@@ -416,12 +409,12 @@ img {
   height: 100%;
   background-color: #4d5ae5;
   border-radius: 50%;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(cubic-bezier(0.4, 0, 0.2, 1));
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-icon-soc {
-  fill: #fff;
+  fill: #f4f4fd;
 }
-.footer-icon-link:hover {
+.footer-icon-link:hover,
+.footer-icon-link:focus {
   background-color: #31d0aa;
 }
