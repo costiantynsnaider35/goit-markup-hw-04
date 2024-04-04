@@ -74,15 +74,13 @@ img {
 }
 .menu-hed {
   color: #404bbf;
-  transition-property: color;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
-.menu-hed:hover,
-.menu-hed:focus {
+.menu:hover,
+.menu:focus {
   color: #404bbf;
 }
-.menu-hed:hover::after {
+.menu-hed::after {
   content: "";
   width: 100%;
   position: absolute;
@@ -92,7 +90,7 @@ img {
   background: #404bbf;
   border-radius: 2px;
   display: block;
-  margin-top: 20px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .menu-navigation {
   display: flex;
@@ -316,10 +314,12 @@ img {
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.port-overlay:hover .board-overlay {
-  transform: translateY(0);
+.port-overlay:hover {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+.port-overlay:hover .board-overlay {
+  transform: translateY(0);
 }
 .port-card {
   border-bottom: 1px solid #e7e9fc;
